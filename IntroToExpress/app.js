@@ -21,9 +21,37 @@ let app = express();
  });
 
  // Route patterns
- app.get('/mom/clean/:number', function(req, res){
-    res.send("The mom cleans the house");
+ app.get('/mom/vacuum/:number', function(req, res){
+    let numberOfCleaning = parseInt(req.params.number);
+    let str = '';
+
+    for( i = 0; i < numberOfCleaning; i++ ){
+       str += "vacuum "
+       console.log(i);
+       console.log(str);
+    }
+    res.send("The mom vacuums the house " + numberOfCleaning + " times in this week " + "<br> <br>" + str )
+
  });
+
+ app.get('/mom/laundry/:number', function(req, res){
+   let numberOfCleaning = parseInt(req.params.number);
+   let str = '';
+
+   for( i = 0; i < numberOfCleaning; i++ ){
+      str += "laundry "
+      console.log(i);
+      console.log(str);
+   }
+   res.send("The mom do laundry " + numberOfCleaning + " times in this week " + "<br> <br>" + str )
+
+});
+
+app.get('*', function(req, res){
+   res.send("Sorry, mom is tired please contact tomorrow again!" )
+
+});
+
 
 
 
