@@ -35,6 +35,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/dogs", function(req, res){
+    console.log("in the /dogs");
     res.render("dogs", {dogs: dogsUrls, breed: breedName});
 });
 
@@ -45,7 +46,12 @@ app.post("/addbreed", function(req, res){
     breedName = newBreed;
     console.log('breed', newBreed);
     requestBreedImg(newBreed);
-    res.redirect("/dogs");
+    setTimeout(function(){
+        res.redirect("/dogs");
+    }, 5000);
+    
+
+    
 });
 
 
