@@ -48,9 +48,7 @@ app.post("/addbreed", function(req, res){
     requestBreedImg(newBreed);
     setTimeout(function(){
         res.redirect("/dogs");
-    }, 5000);
-    
-
+    }, 3000);
     
 });
 
