@@ -1,6 +1,8 @@
 let express = require("express");
 let app = express();
+let request = require('request');
 let bodyParser = require("body-parser");
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -9,7 +11,7 @@ let dogsUrls = [];
 let breedName = "";
 
 const requestBreedImg = (breed) => {
-    let request = require('request');
+    
     let urlBegin = 'https://dog.ceo/api/breed/';
     let urlEnd = '/images';
     let url = urlBegin + breed + urlEnd;
